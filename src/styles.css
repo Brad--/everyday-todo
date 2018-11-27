@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+h1, h2, h3, h4, h5, p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    background: #222;
+}
+
+
+/* Global Checkbox styles */
+.checkbox input[type='checkbox'] {
+    opacity: 0;
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label::before, .checkbox label::after {
+    position: absolute;
+}
+
+/* checkbox outer box */
+.checkbox label::before {
+    content: "";
+    display: flex;
+    height: 16px;
+    width: 16px;
+    top: 3px;
+
+    border: 1px solid #9932CC;
+}
+
+/* the check mark */
+.checkbox label::after {
+    content: "";
+    display: inline-block;
+
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid #9932CC;
+    border-right: 2px solid #9932CC;
+    left: 4px;
+    top: 7px;
+
+    transform: rotate(-45deg);
+}

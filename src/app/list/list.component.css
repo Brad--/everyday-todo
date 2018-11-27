@@ -1,0 +1,38 @@
+.list-container {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+.list-item {
+    min-height: 50px;
+    width: 90%;
+    margin-left: 20px;
+    border: 1px solid #9932CC;
+    background-color: #333;
+
+    font-family: 'Montserrat', sans-serif;
+    color: #ccc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checked {
+    color: #777;
+}
+
+/* The item being dragged*/
+.cdk-drag-placeholder {
+    filter: blur(2px);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+    transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
