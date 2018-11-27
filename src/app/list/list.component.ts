@@ -17,7 +17,25 @@ export class ListComponent implements OnInit {
 
     addListItem (item: ListItem) {
         item.id = this.listItems.length;
-        this.listItems.push(item);
+        if (!this.valueInList(item.value))
+            this.listItems.push(item);
+    }
+
+    valueInList (value: string) {
+        for (let i = 0; i < this.listItems.length; i++) {
+            if (this.listItems[i].value === value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    removeListItem(id: number) {
+        for (let i = 0; i < this.listItems.length; i++) {
+            if (this.listItems[i].id === id) {
+                this.listItems.splice(i, 1);
+            }
+        }
     }
 
     drop(event: CdkDragDrop<ListItem[]>) {
@@ -29,10 +47,10 @@ export class ListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.addListItemForValue("A really long list item value doot doot");
+        // this.addListItemForValue("A really long list item value doot doot");
 
-        let item = new ListItem("List Item 2");
-        item.checked = true;
-        this.addListItem(item);
+        // let item = new ListItem("List Item 2");
+        // item.checked = true;
+        // this.addListItem(item);
     }
 }
