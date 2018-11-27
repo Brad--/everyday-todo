@@ -2,7 +2,8 @@
     <div class="list-item" *ngFor="let item of listItems" [ngClass]="{'checked': item.checked}" cdkDrag>
         <div class="checkbox">
             <input type="checkbox" name="list-item-checkbox" id="checkbox_{{item.id}}" [checked]="item.checked" (change)="item.toggleChecked()">
-            <label for="checkbox_{{item.id}}">{{item.value}}</label>
+            <label for="checkbox_{{item.id}}"></label>
         </div>
+        {{item.value}}
     </div>
 </div>

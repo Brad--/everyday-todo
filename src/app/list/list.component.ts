@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.addListItemForValue("List Item 1");
+        this.addListItemForValue("A really long list item value doot doot");
 
         let item = new ListItem("List Item 2");
         item.checked = true;
