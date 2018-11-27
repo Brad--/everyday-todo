@@ -17,11 +17,11 @@ export class ListComponent implements OnInit {
 
     addListItem (item: ListItem) {
         item.id = this.listItems.length;
-        if (!this.valueInList(item.value))
+        if (!this.isValueInList(item.value))
             this.listItems.push(item);
     }
 
-    valueInList (value: string) {
+    isValueInList (value: string) {
         for (let i = 0; i < this.listItems.length; i++) {
             if (this.listItems[i].value === value) {
                 return true;
@@ -47,10 +47,19 @@ export class ListComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.addListItemForValue("A really long list item value doot doot");
+        // Mock data
+        this.addListItemForValue('A List item');
+        let item = new ListItem('This should be unchecked');
+        item.checked = true;
+        item.lastUpdate = new Date(2018, 10, 27);
+        this.addListItem(item);
 
-        // let item = new ListItem("List Item 2");
-        // item.checked = true;
-        // this.addListItem(item);
+        this.updateListItems();
+    }
+
+    updateListItems () {
+        for (let i = 0; i < this.listItems.length; i++) {
+            this.listItems[i].updateIfStale();
+        }
     }
 }
