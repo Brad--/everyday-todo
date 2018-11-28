@@ -3,13 +3,15 @@ export class ListItem {
     checked: boolean;
     id: number;
     lastUpdate: Date;
-    
-    fadeState: string = 'out';
 
-    constructor (value: string) {
-        this.lastUpdate = new Date();
+    fadeState: string;
+
+    constructor (value: string, checked: boolean = false, id: number, lastUpdate: Date = new Date(), fadeState: string = 'out') {
         this.value = value;
-        this.checked = false;
+        this.checked = checked;
+        this.id = id;
+        this.lastUpdate = lastUpdate;
+        this.fadeState = fadeState;
     }
 
     toggleChecked () {

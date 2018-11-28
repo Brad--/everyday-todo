@@ -5,23 +5,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 import { ListComponent } from './list/list.component';
 import { ListAppendComponent } from './list-append/list-append.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { ListStorageService } from './services/list-storage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     ListAppendComponent,
-    TruncatePipe,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
     DragDropModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

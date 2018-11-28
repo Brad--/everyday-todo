@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { ListItem } from './model/list-item.model'
+import { ListStorageService } from '../services/list-storage.service';
 
 @Component({
     selector: 'list',
@@ -10,6 +11,10 @@ import { ListItem } from './model/list-item.model'
 })
 export class ListComponent implements OnInit {
     listItems: ListItem[] = [];
+
+    constructor(private listStorageService: ListStorageService) {
+
+    }
 
     addListItemForValue (value: string) {
         this.addListItem(new ListItem(value));
@@ -22,6 +27,7 @@ export class ListComponent implements OnInit {
             await this.delay(250);
             item.fadeState = 'in';
         }
+        this.updateLocalStorage();
     }
 
     isValueInList (value: string) {
@@ -41,6 +47,7 @@ export class ListComponent implements OnInit {
                 this.listItems.splice(i, 1);
             }
         }
+        this.updateLocalStorage();
     }
 
     async delay(milliseconds: number) {
@@ -49,17 +56,18 @@ export class ListComponent implements OnInit {
 
     drop(event: CdkDragDrop<ListItem[]>) {
         moveItemInArray(this.listItems, event.previousIndex, event.currentIndex);
+        this.updateLocalStorage();
+    }
+
+    toggleChecked (item: ListItem) {
+        item.toggleChecked();
+        this.updateLocalStorage();
     }
 
     ngOnInit() {
-        // Mock data
-        this.addListItemForValue('A List item');
-        let item = new ListItem('This should be unchecked');
-        item.checked = true;
-        item.lastUpdate = new Date(2018, 10, 27);
-        this.addListItem(item);
-
         // The actual ngOnInit
+        this.listItems = this.listStorageService.getCurrentListFromLocalStorage();
+        console.log(this.listItems);
         this.updateListItems();
     }
 
@@ -67,5 +75,9 @@ export class ListComponent implements OnInit {
         for (let i = 0; i < this.listItems.length; i++) {
             this.listItems[i].updateIfStale();
         }
+    }
+
+    updateLocalStorage () {
+        this.listStorageService.updateLocalStorage(this.listItems);
     }
 }
