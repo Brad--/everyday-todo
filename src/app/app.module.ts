@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,12 +15,13 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     AppComponent,
     ListComponent,
     ListAppendComponent,
-    TruncatePipe
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,
     DragDropModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

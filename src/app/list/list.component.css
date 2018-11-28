@@ -27,6 +27,23 @@
     padding-right: 10px;
 }
 
+/*.swing {
+    perspective: 100px;
+}
+
+.swing .list-item-container {
+
+}
+
+.fade-in .list-item {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+}
+
+.fade-in .list-item.show {
+    opacity: 1;
+}*/
+
 .fa-icon {
     color: #777;
 }

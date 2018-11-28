@@ -15,10 +15,13 @@ export class ListComponent implements OnInit {
         this.addListItem(new ListItem(value));
     }
 
-    addListItem (item: ListItem) {
+    async addListItem (item: ListItem) {
         item.id = this.listItems.length;
-        if (!this.isValueInList(item.value))
+        if (!this.isValueInList(item.value)) {
             this.listItems.push(item);
+            await this.delay(250);
+            item.fadeState = 'in';
+        }
     }
 
     isValueInList (value: string) {
@@ -30,20 +33,22 @@ export class ListComponent implements OnInit {
         return false;
     }
 
-    removeListItem(id: number) {
+    async removeListItem(id: number) {
         for (let i = 0; i < this.listItems.length; i++) {
             if (this.listItems[i].id === id) {
+                this.listItems[i].fadeState = 'out';
+                await this.delay(200);
                 this.listItems.splice(i, 1);
             }
         }
     }
 
-    drop(event: CdkDragDrop<ListItem[]>) {
-        moveItemInArray(this.listItems, event.previousIndex, event.currentIndex);
+    async delay(milliseconds: number) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds));
     }
 
-    checkboxChanged (event: any) {
-        console.log(event);
+    drop(event: CdkDragDrop<ListItem[]>) {
+        moveItemInArray(this.listItems, event.previousIndex, event.currentIndex);
     }
 
     ngOnInit() {
@@ -54,6 +59,7 @@ export class ListComponent implements OnInit {
         item.lastUpdate = new Date(2018, 10, 27);
         this.addListItem(item);
 
+        // The actual ngOnInit
         this.updateListItems();
     }
 

@@ -3,7 +3,8 @@ export class ListItem {
     checked: boolean;
     id: number;
     lastUpdate: Date;
-
+    
+    fadeState: string = 'out';
 
     constructor (value: string) {
         this.lastUpdate = new Date();
