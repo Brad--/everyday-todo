@@ -11,6 +11,8 @@ import { ListComponent } from './list/list.component';
 import { ListAppendComponent } from './list-append/list-append.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { ListStorageService } from './services/list-storage.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ListStorageService } from './services/list-storage.service';
     DragDropModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    StorageServiceModule
+    StorageServiceModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
