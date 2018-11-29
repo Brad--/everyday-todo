@@ -27,22 +27,16 @@
     padding-right: 10px;
 }
 
-/*.swing {
-    perspective: 100px;
+.list-item-container .list-item fa-icon {
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    opacity: .1;
 }
 
-.swing .list-item-container {
-
-}
-
-.fade-in .list-item {
-    transition: all 0.4s ease-out;
-    opacity: 0;
-}
-
-.fade-in .list-item.show {
+.list-item-container:hover .list-item fa-icon {
     opacity: 1;
-}*/
+}
 
 .fa-icon {
     color: #777;

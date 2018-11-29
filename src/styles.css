@@ -3,7 +3,13 @@ h1, h2, h3, h4, h5, p {
 }
 
 html {
-    background: #222;
+    /*background: #222;*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#333));
+    background: -webkit-linear-gradient(-90deg, #222, #333);
+    background: -moz-linear-gradient(-90deg, #222, #333);
+    background: -ms-linear-gradient(-90deg, #222, #333);
+    background: -o-linear-gradient(-90deg, #222, #333);
+    background: linear-gradient(-90deg, #222, #333);
 }
 
 
@@ -26,11 +32,14 @@ html {
     top: 0;
     left: 0;
     background: #333;
-    border: 1px solid #9932CC;
+    border: 1px solid #6200EE;
     border-radius: 3px;
 }
 
 .checkbox label:after {
+    -webkit-transition: .3s;
+    transition: .3s;
+
     opacity: 0;
     content: '';
     position: absolute;
@@ -39,7 +48,7 @@ html {
     background: transparent;
     top: 4px;
     left: 3px;
-    border: 3px solid #9932CC;
+    border: 3px solid #6200EE;
     border-top: none;
     border-right: none;
 

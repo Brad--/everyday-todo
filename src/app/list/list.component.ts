@@ -67,7 +67,6 @@ export class ListComponent implements OnInit {
     ngOnInit() {
         // The actual ngOnInit
         this.listItems = this.listStorageService.getCurrentListFromLocalStorage();
-        console.log(this.listItems);
         this.updateListItems();
     }
 

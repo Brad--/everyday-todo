@@ -36,10 +36,10 @@ export class ListAppendComponent extends ListComponent {
     faBan = faBan;
     faPlus = faPlus;
 
-    // appendValueAndClear(append: any) {
-    //     this.addListItemForValue(append.value);
-    //     append.value = '';
-    // }
+    appendValueAndClear(append: any) {
+        this.addListItemForValue(append.value);
+        append.value = '';
+    }
 
     onRemoveClicked(id: number) {
         // Fade the list item out then delete
