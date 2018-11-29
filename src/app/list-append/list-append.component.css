@@ -5,9 +5,11 @@
     padding-top: 2%;
 }
 
-.append-container input[type=text]{
+.append-container input[type=text] {
     -webkit-transition: .5s;
     transition: .5s;
+
+    box-shadow: 3px 4px #222;
 
     border-radius: 3px;
     background: transparent;
@@ -26,8 +28,12 @@
     outline: none;
 }
 
+.append-container input[type=text]::placeholder {
+    text-shadow: 1px 2px #222;
+}
+
 .append-container input[type=text]:focus {
-    box-shadow: 0 0 2px #6200EE;
+    box-shadow: 4px 5px #111;
     background: #6200EE22; /* Using RGBA hex. 33 is opacity*/
     border: 1px solid #6200EE;
 }

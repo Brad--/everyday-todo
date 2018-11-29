@@ -34,6 +34,8 @@ html {
     background: #333;
     border: 1px solid #6200EE;
     border-radius: 3px;
+
+    box-shadow: 2px 3px #111;
 }
 
 .checkbox label:after {
