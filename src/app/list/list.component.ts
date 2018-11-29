@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
     }
 
     addListItemForValue (value: string) {
-        this.addListItem(new ListItem(value));
+        this.addListItem(new ListItem(value)).then(() => {});
     }
 
     async addListItem (item: ListItem) {
@@ -50,7 +50,7 @@ export class ListComponent implements OnInit {
         this.updateLocalStorage();
     }
 
-    async delay(milliseconds: number) {
+    delay(milliseconds: number) {
         return new Promise(resolve => setTimeout(resolve, milliseconds));
     }
 

@@ -6,7 +6,7 @@ export class ListItem {
 
     fadeState: string;
 
-    constructor (value: string, checked: boolean = false, id: number, lastUpdate: Date = new Date(), fadeState: string = 'out') {
+    constructor (value: string, checked: boolean = false, id: number = -1, lastUpdate: Date = new Date(), fadeState: string = 'out') {
         this.value = value;
         this.checked = checked;
         this.id = id;
