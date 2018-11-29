@@ -1,0 +1,29 @@
+.append-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.append-container input[type=text]{
+    border-radius: 3px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #9932CC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: inherit;
+    color: #ccc;
+
+    /* Extend the border beyond the input box*/
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    outline: none;
+}
+
+.append-container input[type=text]:focus {
+    box-shadow: 0 0 2px rgba(153,50,204);
+    /*background: #333;*/
+    border: 1px solid rgba(153,50,204);
+}
