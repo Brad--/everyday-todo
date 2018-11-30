@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
+import { LOCAL_STORAGE, StorageService } from 'angular-webstorage-service';
 
 import { ListItem } from '../list/model/list-item.model';
 
@@ -9,7 +9,7 @@ const LIST_STORAGE_KEY = 'local_list';
     providedIn: 'root'
 })
 export class ListStorageService {
-    constructor (@Inject(SESSION_STORAGE) private storage: StorageService) {
+    constructor (@Inject(LOCAL_STORAGE) private storage: StorageService) {
 
     }
 
